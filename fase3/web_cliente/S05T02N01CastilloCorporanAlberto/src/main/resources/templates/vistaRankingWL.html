@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{inicio :: head}">
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+
+  <body>
+    <h1>Ranking</h1>
+
+    <table>
+      <tr th:each="ranking : ${ranking}">
+        <td th:text="${ranking.key}"></td>
+        <td th:text="${ranking.value.getNombre()}"></td>
+        <td>
+          Con un porcentaje de
+          <span th:text="${ranking.value.getPorcentajeExito()}"></span> % de
+          exito
+        </td>
+      </tr>
+    </table>
+    <a href="/players/jugar" class="btn btn-outline-primary">
+      volver</a>
+  </body>
+</html>

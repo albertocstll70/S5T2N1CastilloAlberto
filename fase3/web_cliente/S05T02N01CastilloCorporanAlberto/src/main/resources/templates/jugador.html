@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="~{inicio :: head}">
+	<meta charset="UTF-8">
+	<title>Detalles del Jugador</title>
+</head>
+<body>
+	<h1 >Detalles del Jugador</h1>
+	<p>ID: <span th:text="${jugadorNewNombre.id}"></span></p>
+	<p>Nombre: <span th:text="${jugadorNewNombre.nombre}"></span></p>
+	<p>Fecha de alta: <span th:text="${jugadorNewNombre.fechaCreacion}"></span></p>
+	<p>Porcentaje de exito: <span th:text="${jugadorNewNombre.porcentajeExito}"></span></p>	
+	<a href="/players/jugar" class="btn btn-outline-primary">
+		volver</a>
+
+</body>
+</html>

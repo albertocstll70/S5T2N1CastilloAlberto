@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{inicio :: head}">
+    <meta charset="UTF-8" />
+    <title>Juego</title>
+  </head>
+  <body th:style="'background-image: url(' + @{/image2.jpg} + ')'">
+    <table>
+      <th>¡Hola! <span th:text="${jugador.nombre}"></span></th>
+      <th>Consigue un 7 para ganar</th>
+      <tr>
+        <td>
+          <form
+            th:object="${jugador}"
+            th:action="@{/players/{id}(id=${jugador.id})/games}"
+            method="post"
+          >
+            <input type="hidden" name="id" th:field="*{id}" />
+
+            <button type="submit" class="btn btn-outline-primary">Tirar</button>
+          </form>
+        </td>
+      </tr>
+
+      
+        <td>
+          <form
+            th:object="${jugador}"
+            th:action="@{/players/update}"
+            method="put"
+          >
+            <input type="hidden" name="id" th:field="*{id}" />
+            <input type="hidden" name="nombre" th:field="*{nombre}" />
+            <button type="submit" class="btn btn-outline-success">
+              Cambiar nombre
+            </button>
+          </form>
+        </td>
+        <td>
+          <form
+            th:object="${jugador}"
+            th:action="@{/players/{id}(id=${jugador.id})/games}"
+           
+          >
+            <input type="hidden" name="id" th:field="*{id}" />
+            <button type="submit" class="btn btn-outline-danger">
+              Borrar tiradas
+            </button>
+          </form>
+        </td>
+        <td>
+          <form
+            th:object="${jugador}"
+            th:action="@{/players/{id}(id=${jugador.id})/games/historico}"                       
+          >
+            <input type="hidden" name="id" th:field="*{id}" />
+            <button type="submit" class="btn btn-success">
+              Ver mi historico de tiradas
+            </button>
+          </form>
+        </td>
+      </tr>
+    </table>
+
+    <table style="float: left; margin-right: 20px">
+      <tr>
+        <td><a href="/players" class="btn btn-primary">Ver jugadores</a></td>
+        <td>
+          <a href="/players/ranking" class="btn btn-secondary">Ranking Medio</a>
+        </td>
+        <td>
+          <a href="/players/ranking/loser" class="btn btn-warning"
+            >Raking loser
+          </a>
+        </td>
+        <td>
+          <a href="/players/ranking/winner" class="btn btn-success"
+            >Ranking winner</a
+          >
+        </td>
+        <td> <a href="/inicio" class="btn btn-primary">
+          volver a la pagina de inicio</a></td>         
+      </tr>
+    </table>
+  </body>
+</html>

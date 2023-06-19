@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{inicio :: head}">
+    <meta charset="UTF-8" />
+    <title>Alta Jugador</title>
+  </head>
+  <body>
+    <h1>Escribe tu nombre de jugador:</h1>
+
+    <form th:object="${jugadorNewNombre}" th:action="@{/players}" method="post">  
+      <input type="hidden" name="_method" value="put" />      
+      <label for = "nombre">Nombre:</label>
+      
+      <input
+        type="text"
+        th:field="*{nombre}" id = "nombre"
+        placeholder="Escribe un nombre de jugador"
+      />
+
+      <div th:errors="*{nombre}"></div>
+     
+      <button type="submit">Guardar</button>
+    </form>
+  </body>
+</html>

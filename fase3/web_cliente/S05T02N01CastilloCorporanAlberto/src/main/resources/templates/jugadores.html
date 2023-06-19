@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{inicio :: head}">
+    <meta charset="UTF-8" />
+    <title>Lista de Jugadores</title>
+  </head>
+  <body>
+    <table border="1" class="table table-striped">
+      <tr>
+        <th>Lista de Jugadores</th>
+        <th>          
+          <a href="/players/jugar" class="btn btn-outline-primary">
+            volver</a>
+        </th>
+      </tr>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Porcentaje de Exito</th>
+        <th>Fecha de alta</th>
+      </tr>
+      <tr th:each="jugador: ${jugadores}">
+        <td th:text="${jugador.id}"></td>
+        <td th:text="${jugador.nombre}"></td>
+        <td th:text="${jugador.porcentajeExito}"></td>
+        <td th:text="${jugador.fechaCreacion}"></td>
+      </tr>
+    </table>
+  </body>
+</html>

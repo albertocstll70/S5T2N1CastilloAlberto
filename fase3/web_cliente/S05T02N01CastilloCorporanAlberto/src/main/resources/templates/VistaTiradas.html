@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{inicio :: head}">
+    <meta charset="UTF-8" />
+    <title>Listas tiradas</title>
+  </head>
+  <body>
+    <table border="1" class="table table-striped">
+      <tr>
+        <th>Lista de tiradas</th>
+        <th>          
+          <a href="/players/jugar" class="btn btn-outline-primary">
+            volver</a>
+        </th>
+      </tr>
+      <tr>
+        <th>ID</th>
+        <th>Valor dado 1</th>
+        <th>Valor dado 2</th>
+        <th> Resultado </th>
+      </tr>
+      <tr th:each="tirada: ${listTiradas}">
+        <td th:text="${tirada.id}"></td>
+        <td th:text="${tirada.valorDado1}"></td>
+        <td th:text="${tirada.valorDado2}"></td>
+        <td th:text="${tirada.resultadoPartida}"></td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "url.base",
+    "type": "java.lang.String",
+    "description": "A description for 'url.base'"
+  },
+  {
+    "name": "dados.base-url",
+    "type": "java.lang.String",
+    "description": "A description for 'dados.base-url'"
+  }
+]}

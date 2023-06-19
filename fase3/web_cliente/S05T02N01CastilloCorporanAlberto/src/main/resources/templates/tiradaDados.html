@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{inicio :: head}">
+    <meta charset="UTF-8" />
+    <title>Jugador</title>
+  </head>
+
+  <body
+    th:style="${tirada.resultado ? 'background-color: #d8f3dc' : 'background-color: #fadbd8'}"
+  >
+    <style>
+      table {
+        margin: 0 auto;
+      }
+
+      img {
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+<h2>¡Hola! <span th:text="${jugador.nombre}"></span></h2>
+    <h1>¡Consigue un 7 para ganar!</h1>
+    <h2 th:if="${tirada.resultado}">¡Has Ganado!</h2>
+    <h2 th:if="${!tirada.resultado}">¡Has Perdido!</h2>
+
+    <table>
+      <th>
+        Tirada de dados: <span th:text="${tirada.valorDado1}"></span> y
+        <span th:text="${tirada.valorDado2}"></span>
+      </th>
+
+      <tr>
+        <td>
+          <form
+            th:object="${jugador}"
+            th:action="@{/players/{id}(id=${jugador.id})/games}"
+            method="post"
+          >
+            <input type="hidden" name="id" th:field="*{id}" />
+            <button type="submit" class="btn btn-outline-primary">
+              Volver a Tirar
+            </button>
+            
+            
+              
+          
+          
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img th:if="${tirada.valorDado1 eq 1}" src="/dado-1.jpg" />
+          <img th:if="${tirada.valorDado1 eq 2}" src="/dado-2.jpg" />
+          <img th:if="${tirada.valorDado1 eq 3}" src="/dado-3.jpg" />
+          <img th:if="${tirada.valorDado1 eq 4}" src="/dado-4.jpg" />
+          <img th:if="${tirada.valorDado1 eq 5}" src="/dado-5.jpg" />
+          <img th:if="${tirada.valorDado1 eq 6}" src="/dado-6.jpg" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img th:if="${tirada.valorDado2 eq 1}" src="/dado-1.jpg" />
+          <img th:if="${tirada.valorDado2 eq 2}" src="/dado-2.jpg" />
+          <img th:if="${tirada.valorDado2 eq 3}" src="/dado-3.jpg" />
+          <img th:if="${tirada.valorDado2 eq 4}" src="/dado-4.jpg" />
+          <img th:if="${tirada.valorDado2 eq 5}" src="/dado-5.jpg" />
+          <img th:if="${tirada.valorDado2 eq 6}" src="/dado-6.jpg" />
+        </td>
+      </tr>
+       
+      <tr>
+        <td>
+          
+
+            <a href="/players/jugar" class="btn btn-outline-primary">
+              volver</a>
+          
+        </td>
+      </tr>
+    </table>
+    
+  </body>
+</html>

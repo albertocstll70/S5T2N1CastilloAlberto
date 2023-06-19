@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+  <head th:fragment="head">
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+    />
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <title>Juego de dados</title>
+  </head>
+  <body th:style="'background-image: url(' + @{/image2.jpg} + ')'">
+    <h1>Bienvenido al juego de los dados</h1>
+    <table>
+      <tr>
+        <th><a href="/inicio/info" class="btn btn-outline-primary">info</a></th>
+      </tr>
+      <tr>
+        <td>
+          <a href="/players/login" class="btn btn-outline-dark">Login</a>
+        </td>
+        <td>
+          <a href="/players/register" class="btn btn-outline-success"
+            >Crear jugador</a
+          >
+        </td>
+      </tr>
+
+      <tr>
+        
+        <td>
+    </table>
+  </body>
+</html>

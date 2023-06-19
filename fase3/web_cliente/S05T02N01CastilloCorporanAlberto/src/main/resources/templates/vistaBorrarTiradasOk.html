@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{inicio :: head}">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1 th:text="${response}">Se han borrado todas las tiradas correctamente</h1>   
+    <a href="/players/jugar" class="btn btn-outline-primary">
+        volver</a>
+</body>
+</html>

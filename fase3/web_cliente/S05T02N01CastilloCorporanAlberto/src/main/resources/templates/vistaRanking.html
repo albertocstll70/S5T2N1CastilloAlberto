@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{inicio :: head}">
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+
+  <body>
+    <h1>Ranking</h1>
+
+    <table>
+      <tr th:each="ranking : ${ranking}">
+        <td th:text="${ranking.key}"></td>
+        <td th:text="${ranking.value}"></td>
+      </tr>
+    </table>
+    <a href="/players/jugar" class="btn btn-outline-primary">
+      volver</a>
+  </body>
+</html>
